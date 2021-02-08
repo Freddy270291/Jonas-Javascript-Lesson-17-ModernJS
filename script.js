@@ -38,6 +38,7 @@ Exported values are not copied, they are just linked to the importing module. Wh
 
 */
 
+/*
 // import { addToCart, totalPrice as price, quantity } from './shoppingCart.js';
 // addToCart('bread', 5);
 // console.log(quantity, price);
@@ -53,3 +54,16 @@ ShoppingCart.addToCart('bread', 5);
 // Importing export default (we can give a name we want, with export default onlyone thing can be exported)
 import add from './shoppingCart.js';
 add('milk', 2);
+*/
+
+// COMMAND LINE
+// dir: to check what is in the folder
+// cd .. : to go up one folder
+// cd ../..  : to go up two folders
+// cd starter : to go to the folder starter (TAB to autofil the name)
+// mkdir TEST : to createa folder "TEST"
+// echo.> index.html : to create a file named index.html
+// del index.html : to delete the file index.hmtl
+// mv index.html ../  : to move the file one folder up
+// rmdir : to delete a folder (for empty directory)
+// rm -R TEST: to delete a folder that is not empty
