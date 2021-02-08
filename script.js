@@ -67,3 +67,38 @@ add('milk', 2);
 // mv index.html ../  : to move the file one folder up
 // rmdir : to delete a folder (for empty directory)
 // rm -R TEST: to delete a folder that is not empty
+
+// NPM (Node Package Manager):
+// npm -v : to check if we have NPM installed. If there is any number it should be good (>6)
+// In each project in which we want to run npm, we need to initialize it
+// npm init --> it will ask some questions to create the JSON file
+// If we don't need special stuff, we can press enter many times and after the confirmation it creates a special file called package.json
+// PACKAGE.JSON: It's the file that stores the entire configuration of the project
+// npm install leaflet : to install the packet of leaflet.It creates a new dependency in the package.json file
+// It creates also the node_modules folder with the library
+
+// Install Lodash
+// npm i lodash-es
+// There is a file for each of the methods. We import the file/method we want to include:
+
+// cloneDeep to copy a nested object
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 3 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+const stateCloneDeep = cloneDeep(state);
+
+// Change the loggedIn to false:
+state.user.loggedIn = false;
+console.log(stateClone); // Here it is false because we changed it
+console.log(stateCloneDeep); // Here is true because we changed the original one
+
+// DO NOT INCLUDE THESE NPM FOLDERS IN GIT
+// To install all the dependency files we need, we have to enter in the terminal:  npm i
