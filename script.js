@@ -38,7 +38,6 @@ Exported values are not copied, they are just linked to the importing module. Wh
 
 */
 
-/*
 // import { addToCart, totalPrice as price, quantity } from './shoppingCart.js';
 // addToCart('bread', 5);
 // console.log(quantity, price);
@@ -54,7 +53,6 @@ ShoppingCart.addToCart('bread', 5);
 // Importing export default (we can give a name we want, with export default onlyone thing can be exported)
 import add from './shoppingCart.js';
 add('milk', 2);
-*/
 
 // COMMAND LINE
 // dir: to check what is in the folder
@@ -82,7 +80,8 @@ add('milk', 2);
 // There is a file for each of the methods. We import the file/method we want to include:
 
 // cloneDeep to copy a nested object
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+//import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import cloneDeep from 'lodash-es'; // Imports everything without specifying the path
 
 const state = {
   cart: [
@@ -100,5 +99,41 @@ state.user.loggedIn = false;
 console.log(stateClone); // Here it is false because we changed it
 console.log(stateCloneDeep); // Here is true because we changed the original one
 
-// DO NOT INCLUDE THESE NPM FOLDERS IN GIT
+// DO NOT INCLUDE THESE NPM FOLDERS IN GIT - Create a file .gitignore. and add the folder to ignore (node_modules/)
 // To install all the dependency files we need, we have to enter in the terminal:  npm i
+
+////// PARCEL
+// It's a built tool in NPM - npm install parcel --save-dev
+// A dev dependency is a tool that we need to build our application, but it's not included in our code
+
+// To use parcel, we can use NPX or Parcel scripts.
+// PNX: it is an application built into NPM
+// Terminal:  npx parcel index.html
+// The entry point is index.html because it is where we include the script, the file that we want to bundle up.
+// We have the error in the console "parcelRequire is not define" because in the script of the html we have the type="module" that we don't need anymore, it is a normal script
+
+// PARCEL created the DIST (Distribution) folder, that we will send to production.
+// In this folder there is the code that we will send to the user
+// The index.html links to another script.js file, that contains the conversion to ES5 Javascript
+
+// HOT MODULE REPLACEMENT: whenever we change one of the modules, it will rebuild the parcel, but the new modified bundle will be charged in the page without reloading the page
+if (module.hot) {
+  module.hot.accept();
+}
+
+// NPM SCRIPTS
+// It's another way of running locally installed packagesin the cmd and allow us to avoid repetitive tasks
+// STEP 1: si va in package.json e dentro "scripts" (in Debug) si cancella quello che c'è e si mette "start": "parcel index.html"
+// STEP 2: Nel terminal si digita npm run start
+
+// BUILT THE FINAL BUNDLE: we insert in the JSON, sempre tra gli scripts, "build": "parcel build index.html"
+/*
+"scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+*/
+// poi si lancia nel terminal,  npm run build
+
+// We can install packages GLOBALLY (we can use the global tools in the cmd)
+// npm i parcel -g
