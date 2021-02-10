@@ -137,3 +137,15 @@ if (module.hot) {
 
 // We can install packages GLOBALLY (we can use the global tools in the cmd)
 // npm i parcel -g
+
+////// BABEL
+// To convert our code to previous JS Version (ES5) so it can be run by everyone
+class Person {
+  greeting = 'Hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.greeting}, ${this.name}`);
+  }
+}
+
+const Jonas = new Person('Jonas');
